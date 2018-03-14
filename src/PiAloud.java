@@ -17,7 +17,7 @@ public class PiAloud {
 	String pi = "3.141592653589793238";
 	// 3. Print out some digits of Pi. The first value is "pi.charAt(0)", the second is "pi.charAt(1)"
 		JOptionPane.showMessageDialog(null, "Your goal is to name every character (even the dot) in Pi!");
-		int streak = 0;
+		int streak = -1;
 		for (int i = 0; i < pi.length(); i++) {
 			String guess = JOptionPane.showInputDialog("What's the next number in Pi?") + " ";
 			String digit = pi.charAt(i) + " ";
