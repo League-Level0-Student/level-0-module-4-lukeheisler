@@ -8,12 +8,12 @@ public class HappyPet {
 	// 2. Add the following variable to the next line: static int happinessLevel = 0;
 	// this will be used to store the happiness of your pet
 	static int happinessLevel = 0;
+	static Random r = new Random();
+	static int persVal = r.nextInt();
+	static boolean full = false;
 	
 	public static void main(String[] args) {
 		String pet = "null";
-		Random r = new Random(9999999);
-		int persVal = r.nextInt();
-		System.out.println(persVal);
 		// 1. Ask the user what kind of pet they want to buy, and store their answer in a variable
 		int petInt = JOptionPane.showOptionDialog(null, "What kind of pet would you like to buy?", "HappyPet", 0, JOptionPane.INFORMATION_MESSAGE, null,
 				new String[] { "Cat", "Dog", "Bat", "Bird", "Potato" }, null);
@@ -39,7 +39,10 @@ public class HappyPet {
 			int activity = JOptionPane.showOptionDialog(null, "What activity will you do with your " + pet + "?", "HappyPet", 0, JOptionPane.INFORMATION_MESSAGE, null,
 					new String[] { "Cuddle", "Feed", "Give Water", "Take for Walk", "Groom", "Clean Poo Poo" }, null);
 			if(activity==0) {
-				cuddle(persVal, pet);
+				cuddle(pet);
+			}
+			if(activity==1) {
+				feed(pet);
 			}
 			//    Make sure to customize the title and question too.
 
@@ -53,12 +56,31 @@ public class HappyPet {
 	// 4. Create methods to handle each of your user selections.
 	//    Each method should create a pop-up with the pet's response (eg. cat might purr when pet), 
 	//    and INCREMENT the pet's happiness Level.
-	public static void cuddle(int pv, String p)  {
-		if(pv%2==0) {
+	public static void cuddle(String p)  {
+		if(persVal%2==0) {
 			JOptionPane.showMessageDialog(null, "Your " + p + " purred!");
+			happinessLevel++;
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Your " + p + " didn't particularly like that...");
+			happinessLevel--;
+		}
+	}
+	public static void feed(String p)  {
+		if(full==false) {
+			JOptionPane.showMessageDialog(null, "Yum! Your " + p + " enjoyed it!");
+			happinessLevel++;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Your " + p + " didn't eat. It's probably full.");
+		}
+	}
+	public static void poop(String p) {
+		if(persVal%3==0) {
+			JOptionPane.showMessageDialog(null, "Your " + p + " appreciates your effort to clean up!");
+		}
+		else if(persVal%3==1) {
+			JOptionPane.showme
 		}
 	}
 }
