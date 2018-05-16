@@ -43,7 +43,7 @@ public class OwnAdventure {
 					JOptionPane.showMessageDialog(null, "You enter the grocery store and then go home without incident. The End.");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "The police are waiting at your house and arrest you for escaping them. You get sentenced tolife in prison because the legal system is extremely corrupt. The End.");
+					JOptionPane.showMessageDialog(null, "The police are waiting at your house and arrest you for escaping them. You get sentenced to life in prison because the legal system is extremely corrupt. The End.");
 				}
 			}
 		}

@@ -33,24 +33,36 @@ public class HappyPet {
 			pet = "Potato";
 		}
 		// 7. REPEAT steps 3 - 6 enough times to make your pet happy!
-		
+		for(int i = 0; i==0;) {
 			// 3. Use showOptionDialog to ask the user what they want to do to make their pet happy
 			//    (eg: cuddle, food, water, take a walk, groom, clean up poop).
-			int activity = JOptionPane.showOptionDialog(null, "What activity will you do with your " + pet + "?", "HappyPet", 0, JOptionPane.INFORMATION_MESSAGE, null,
-					new String[] { "Cuddle", "Feed", "Give Water", "Take for Walk", "Groom", "Clean Poo Poo" }, null);
-			if(activity==0) {
-				cuddle(pet);
-			}
-			if(activity==1) {
-				feed(pet);
-			}
+			int activity = JOptionPane.showOptionDialog(null, "What activity will you do with your " + pet + "?", pet + " has " + happinessLevel + " happiness.", 0, JOptionPane.INFORMATION_MESSAGE, null,
+					new String[] { "Cuddle", "Feed", "Give Water", "Take for Walk", "Clean Poo Poo" }, null);
 			//    Make sure to customize the title and question too.
 
 			// 5. Use user input to call the appropriate method created in step 4.
-
+			if(activity==0) {
+				cuddle(pet);
+			}
+			else if(activity==1) {
+				feed(pet);
+			}
+			else if(activity==2) {
+				water(pet);
+			}
+			else if(activity==3) {
+				walk(pet);
+			}
+			else {
+				poop(pet);
+			}
 			// 6. If you determine the happiness level is large enough, tell the
 			//    user that he loves his pet and use break; to exit for loop.
-
+			if(happinessLevel>=10) {
+				JOptionPane.showMessageDialog(null, "Your " + pet + " loves you! You win!");
+				break;
+			}
+		}
 	}
 
 	// 4. Create methods to handle each of your user selections.
@@ -70,6 +82,7 @@ public class HappyPet {
 		if(full==false) {
 			JOptionPane.showMessageDialog(null, "Yum! Your " + p + " enjoyed it!");
 			happinessLevel++;
+			full = true;
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Your " + p + " didn't eat. It's probably full.");
@@ -78,9 +91,34 @@ public class HappyPet {
 	public static void poop(String p) {
 		if(persVal%3==0) {
 			JOptionPane.showMessageDialog(null, "Your " + p + " appreciates your effort to clean up!");
+			happinessLevel++;
 		}
 		else if(persVal%3==1) {
-			JOptionPane.showme
+			JOptionPane.showMessageDialog(null, "Your " + p + " seems indifferent to your cleaning up.");
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Your " + p + " seems like they wanted to eat the poo. They're growling.");
+			happinessLevel--;
+		}
+	}
+	public static void water(String p) {
+		if(persVal%4==0||persVal%4==1||persVal%4==2) {
+			JOptionPane.showMessageDialog(null, "The water dish is replenished!");
+			happinessLevel++;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "The water dish is replenished! Your " + p + " seems super happy!");
+			happinessLevel = happinessLevel + 2;
+		}
+	}
+	public static void walk(String p) {
+		if(persVal%3==0||persVal%3==2) {
+			JOptionPane.showMessageDialog(null, "Your pet loved it!");
+			happinessLevel++;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Your " + p + " is panting. It looks angry.");
+			happinessLevel--;
 		}
 	}
 }

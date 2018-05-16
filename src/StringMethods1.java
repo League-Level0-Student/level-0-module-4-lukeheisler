@@ -25,7 +25,11 @@ public class StringMethods1 {
 		//    Print the char's position to the console.
 		//    EXAMPLE: if your string is "abc" and you are searching 
 		//             for char 'b', then print "b is at index 1"
-		
+		for(int i = 0; i<s.length(); i++) {
+			if(s.charAt(i)=='8') {
+				System.out.println("The letter is at index " + i);
+			}
+		}
 	}
 }
 
